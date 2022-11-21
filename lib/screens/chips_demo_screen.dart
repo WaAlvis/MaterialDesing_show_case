@@ -1,116 +1,124 @@
 import 'package:flutter/material.dart';
-import 'package:material3_show_case/data_widgets_example.dart';
 import 'package:material3_show_case/widgets/section_title_case_widget.dart';
 import 'package:material3_show_case/widgets/widgets.dart';
 
-import '../widgets/section_view_widget_example.dart';
 
-class ChipsDemoScreen extends StatelessWidget {
+class ChipsDemoScreen extends StatefulWidget {
   const ChipsDemoScreen({Key? key}) : super(key: key);
 
   @override
+  State<ChipsDemoScreen> createState() => _ChipsDemoScreenState();
+}
+
+class _ChipsDemoScreenState extends State<ChipsDemoScreen> {
+  @override
   Widget build(BuildContext context) {
-    chipList() {
-      return Wrap(
-        spacing: 6.0,
-        runSpacing: 6.0,
-        children: <Widget>[
-          _buildChip('Gamer', const Color(0xFFff6666)),
-          _buildChip('Hacker', const Color(0xFF007f5c)),
-          _buildChip('Developer', const Color(0xFF5f65d3)),
-          _buildChip('Racer', const Color(0xFF19ca21)),
-          _buildChip('Traveller', const Color(0xFF60230b)),
-        ],
-      );
-    }
-
-    actionChipList(BuildContext context) {
-      return Wrap(
-        spacing: 6.0,
-        runSpacing: 6.0,
-        children: <Widget>[
-          _buildActiomChip(context, 'Gamer', const Color(0xFFff6666)),
-          _buildActiomChip(context, 'Hacker', const Color(0xFF007f5c)),
-          _buildActiomChip(context, 'Developer', const Color(0xFF5f65d3)),
-          _buildActiomChip(context, 'Racer', const Color(0xFF19ca21)),
-          _buildActiomChip(context, 'Traveller', const Color(0xFF60230b)),
-        ],
-      );
-    }
-
-    snackBar(String msj) {
-      return SnackBar(
-        content: Text('$msj Acttion!'),
-      );
-    }
-
-    final TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: const AppBarShowCase(),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
-          children: [
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
             SectionTitleCaseWidget(
               title: 'Chips Widget',
-              bodySection: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _easyChip(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  chipList(),
-                ],
-              ),
+              caseWidget: BasicChip(),
             ),
             SectionTitleCaseWidget(
               title: 'ActionChip Widget',
-              bodySection: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const _RowActionsChips(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  actionChipList(context),
-                ],
-              ),
+              caseWidget: BasicActionsChips(),
             ),
             SectionTitleCaseWidget(
-              title: 'Chips Widget',
-              bodySection: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _easyChip(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  chipList(),
-                ],
-              ),
-            )
+              title: 'InputChips Widget',
+              caseWidget: BasicInputsChips(),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            SectionTitleCaseWidget(
+              title: 'Chips List Show Case',
+              caseWidget: ExampleChips(),
+            ),
           ],
         ),
       ),
     );
   }
+}
 
-  Chip _easyChip() {
+class BasicInputsChips extends StatefulWidget {
+  const BasicInputsChips({
+    super.key,
+  });
+
+  @override
+  State<BasicInputsChips> createState() => _BasicInputsChipsState();
+}
+
+class _BasicInputsChipsState extends State<BasicInputsChips> {
+  bool _isSelected = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        InputChip(
+          avatar: const CircleAvatar(
+            child: Text('FD'),
+          ),
+          label: Text(
+            'InputChip',
+            style: TextStyle(color: _isSelected ? Colors.white : Colors.black),
+          ),
+          selected: _isSelected,
+          selectedColor: Colors.blue.shade600,
+          onSelected: (bool selected) {
+            setState(() {
+              if (!_isSelected) _isSelected = selected;
+            });
+          },
+          onDeleted: () {
+            if (_isSelected) _isSelected = false;
+            setState(() {});
+          },
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        InputChip(
+          avatar: const CircleAvatar(
+            child: Text('D'),
+          ),
+          label: const Text(
+            'Disable',
+          ),
+          selectedColor: Colors.blue.shade600,
+          isEnabled: false,
+        ),
+      ],
+    );
+  }
+}
+
+class BasicChip extends StatelessWidget {
+  const BasicChip({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return const Chip(
-      labelPadding: EdgeInsets.all(2.0),
       avatar: CircleAvatar(
         // backgroundColor: Colors.white70,
         child: Text('W'),
       ),
       label: Text(
-        'Widget Chip',
+        'Chip',
       ),
     );
   }
 }
 
-class _RowActionsChips extends StatelessWidget {
-  const _RowActionsChips({
+class BasicActionsChips extends StatelessWidget {
+  const BasicActionsChips({
     super.key,
   });
 
@@ -121,14 +129,14 @@ class _RowActionsChips extends StatelessWidget {
         content: Text('$msj Acttion!'),
       );
     }
+
     return Row(
       children: [
         ActionChip(
-          padding: const EdgeInsets.all(2.0),
           avatar: const CircleAvatar(
             child: Icon(
-              Icons.mode_comment,
-              size: 18,
+              Icons.add_alert,
+              size: 15,
             ),
           ),
           label: const Text('ActionChip'),
@@ -141,11 +149,10 @@ class _RowActionsChips extends StatelessWidget {
           width: 12,
         ),
         const ActionChip(
-          padding: EdgeInsets.all(2.0),
           avatar: CircleAvatar(
             child: Icon(
-              Icons.mode_comment,
-              size: 18,
+              Icons.do_not_disturb_on_outlined,
+              size: 15,
             ),
           ),
           label: Text('Disable'),
@@ -155,56 +162,45 @@ class _RowActionsChips extends StatelessWidget {
   }
 }
 
-Widget _buildChip(String label, Color color) {
-  return Chip(
-    labelPadding: const EdgeInsets.all(2.0),
-    avatar: CircleAvatar(
-      backgroundColor: Colors.white70,
-      child: Text(label[0].toUpperCase()),
-    ),
-    label: Text(
-      label,
-      style: const TextStyle(
-        color: Colors.white,
-      ),
-    ),
-    backgroundColor: color,
-    elevation: 6.0,
-    shadowColor: Colors.grey[60],
-    padding: const EdgeInsets.all(8.0),
-  );
-}
+class ExampleChips extends StatelessWidget {
+  const ExampleChips({Key? key}) : super(key: key);
 
-Widget _buildActiomChip(
-  BuildContext context,
-  String label,
-  Color color,
-) {
-  snackBar(String msj) {
-    return SnackBar(
-      content: Text('$msj Acttion!'),
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 6.0,
+      // runSpacing: 6.0,
+      children: <Widget>[
+        _buildChip(
+          'Gamer',
+        ),
+        _buildChip(
+          'Developer',
+        ),
+        _buildChip(
+          'Player',
+        ),
+        _buildChip(
+          'Racer',
+        ),
+        _buildChip(
+          'Traveller',
+        ),
+      ],
     );
   }
+}
 
-  return ActionChip(
-    labelPadding: const EdgeInsets.all(2.0),
+Widget _buildChip(
+  String label,
+) {
+  return Chip(
     avatar: CircleAvatar(
-      backgroundColor: Colors.white70,
       child: Text(label[0].toUpperCase()),
     ),
     label: Text(
       label,
-      style: const TextStyle(
-        color: Colors.white,
-      ),
     ),
-    onPressed: () {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(snackBar('ActionChip Event'));
-    },
-    backgroundColor: color,
-    elevation: 6.0,
-    shadowColor: Colors.grey[60],
-    padding: const EdgeInsets.all(8.0),
+    // backgroundColor: color,
   );
 }

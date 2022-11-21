@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
 
           title: 'Flutter Material 2 vs 3 Show Case',
           theme: ThemeData(
-            useMaterial3: snapshot.data,
+            useMaterial3: snapshot.data, // Material 3 -- flag --
+
+            dividerColor: Theme.of(context).colorScheme.secondary
           ),
           initialRoute: AppRoutes.initialRoute,
           routes: AppRoutes.getAppRoutes(),

@@ -5,9 +5,7 @@ import 'models/case_widget_show.dart';
 
 class DataWidgetExample {
 
-  static final List<Color> listColors =[
-    Colors.redAccent,Colors.orange,Colors.green,Colors.blueAccent, Colors.purpleAccent, Colors.amber, Colors.greenAccent,Colors.cyanAccent, Colors.pink
-  ];
+
   // Accesiblidad, colors, formas redondeas, Typografia
   // Dynami color, formas simplicificacion,
   // accesibilidad.

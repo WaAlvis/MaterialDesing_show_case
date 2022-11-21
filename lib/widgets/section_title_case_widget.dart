@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class SectionTitleCaseWidget extends StatelessWidget {
   final String title;
-  final Widget bodySection;
+  final Widget caseWidget;
 
   const SectionTitleCaseWidget(
-      {Key? key, required this.title, required this.bodySection})
+      {Key? key, required this.title, required this.caseWidget})
       : super(key: key);
 
   @override
@@ -13,7 +13,7 @@ class SectionTitleCaseWidget extends StatelessWidget {
     final TextTheme textTheme = Theme.of(context).textTheme;
 
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(top: 10.0, ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -23,7 +23,7 @@ class SectionTitleCaseWidget extends StatelessWidget {
             style: textTheme.titleLarge,
           ),
           const Divider(),
-          bodySection,
+          caseWidget,
         ],
       ),
     );

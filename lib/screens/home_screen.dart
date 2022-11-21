@@ -12,7 +12,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final menuOptions = AppRoutes.optionsMenu;
-    final bool textTheme = Theme.of(context).useMaterial3;
+    final ThemeData themeData = Theme.of(context);
+    // final bool materialTheme = Theme.of(context).useMaterial3;
 
     return Scaffold(
       floatingActionButton: const BtnChangeMaterial(),
@@ -21,15 +22,15 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height:20),
+          const SizedBox(height:20),
           Text(
             'Show Case Material 2 vs 3',
-            style: textTheme.titleLarge,
+            style: themeData.textTheme.titleLarge,
           ),
           const SizedBox(height: 20),
           Flexible(
             child: GridView.builder(
-              padding:const  EdgeInsets.only(bottom:50.0, right:10.0, left:10.0),
+              padding:const  EdgeInsets.only(bottom:50.0, left: 20, right: 20),
               itemCount: menuOptions.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -40,7 +41,6 @@ class HomeScreen extends StatelessWidget {
                   onTap: () =>
                       Navigator.pushNamed(context, menuOptions[i].route),
                   child: Card(
-                    color: DataWidgetExample.listColors[i],
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                           child: Text(
                             textAlign: TextAlign.center,
                             menuOptions[i].title,
-                            style: textTheme.titleLarge,
+                            style: themeData.textTheme.titleLarge,
                           ),
                         ),
                       ],

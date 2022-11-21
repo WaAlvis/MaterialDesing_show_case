@@ -14,7 +14,7 @@ class CardsDemoScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: SectionTitleCaseWidget(
           title: 'Card Widget',
-          bodySection: Column(
+          caseWidget: Column(
             children: [
               Card(
                 child: Column(
