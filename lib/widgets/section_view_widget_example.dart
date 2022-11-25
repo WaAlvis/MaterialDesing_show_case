@@ -31,13 +31,20 @@ class SectionViewWidgetExample extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            titleSection,
-            style: textTheme.titleLarge,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:20.0),
+            child: Text(
+              titleSection,
+              style: textTheme.titleLarge,
+            ),
           ),
-          const Divider(),
-          Flexible(
+          const Padding(
+            padding:  EdgeInsets.symmetric(horizontal:20.0),
+            child:  Divider(),
+          ),
+          Expanded(
             child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal:20.0),
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: listW.length,

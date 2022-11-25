@@ -16,6 +16,8 @@ class _BtnChangeMaterialState extends State<BtnChangeMaterial> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      elevation: 10,
+
       heroTag: 'btn change',
       onPressed: () {
         blocTheme.typeMaterial = !blocTheme.typeMaterial;

@@ -12,44 +12,42 @@ class ButtonsDemoScreen extends StatelessWidget {
     final TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: const AppBarShowCase(),
+      floatingActionButton: const BtnChangeMaterial(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       body:
 
-      Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SectionViewWidgetExample(
-              textTheme,
-              titleSection: 'TextButton Widget',
-              listCaseWidgets: DataWidgetExample.listTextButtons,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SectionViewWidgetExample(
-              textTheme,
-              titleSection: 'OutlinedButton Widget',
-              listCaseWidgets: DataWidgetExample.listOutlinedButtons,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SectionViewWidgetExample(
-              textTheme,
-              titleSection: 'ElevatedButton Widget',
-              listCaseWidgets: DataWidgetExample.listElevatedButtons,
-            ),
-            SectionViewWidgetExample(
-              textTheme,
-              titleSection: 'FloatingActionButton Widget',
-              listCaseWidgets: DataWidgetExample.listFabButtons,
-            ),
-          ],
-        ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SectionViewWidgetExample(
+            textTheme,
+            titleSection: 'TextButton Widget',
+            listCaseWidgets: DataWidgetExample.listTextButtons,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SectionViewWidgetExample(
+            textTheme,
+            titleSection: 'OutlinedButton Widget',
+            listCaseWidgets: DataWidgetExample.listOutlinedButtons,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SectionViewWidgetExample(
+            textTheme,
+            titleSection: 'ElevatedButton Widget',
+            listCaseWidgets: DataWidgetExample.listElevatedButtons,
+          ),
+          SectionViewWidgetExample(
+            textTheme,
+            titleSection: 'FloatingActionButton Widget',
+            listCaseWidgets: DataWidgetExample.listFabButtons,
+          ),
+        ],
       ),
     );
   }
 }
-
