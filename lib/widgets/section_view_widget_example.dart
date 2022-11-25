@@ -26,7 +26,7 @@ class SectionViewWidgetExample extends StatelessWidget {
               ],
             ))
         .toList();
-    return Expanded(
+    return Flexible(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
