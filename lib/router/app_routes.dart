@@ -47,7 +47,7 @@ class AppRoutes {
       title: 'Navigation Bar Screen',
       route: 'navigation_bar_screen',
       icon: Icons.navigation_outlined,
-      screen: const InProgresScreen(),
+      screen: const NavigationBarDemoScreen(),
     ),
     OptionMenu(
       title: 'Navigation Rail Screen',
