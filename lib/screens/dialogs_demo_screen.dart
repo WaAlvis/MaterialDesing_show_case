@@ -14,6 +14,8 @@ class DialogsDemoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Show Case Material 3'),
       ),
+      floatingActionButton: const BtnChangeMaterial(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: const Padding(
         padding: EdgeInsets.all(20.0),
         child: SingleChildScrollView(

@@ -19,11 +19,9 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-
           title: 'Flutter Material 2 vs 3 Show Case',
           theme: ThemeData(
             useMaterial3: snapshot.data, // Material 3 -- flag --
-
             dividerColor: Theme.of(context).colorScheme.secondary
           ),
           initialRoute: AppRoutes.initialRoute,

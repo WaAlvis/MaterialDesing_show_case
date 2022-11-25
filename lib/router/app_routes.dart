@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:material3_show_case/models/menu_option.dart';
-import 'package:material3_show_case/screens/buttons_demos_screen.dart';
-import 'package:material3_show_case/screens/dialogs_demo_screen.dart';
 import 'package:material3_show_case/screens/screens.dart';
 
 class AppRoutes {
@@ -53,7 +51,7 @@ class AppRoutes {
       title: 'Navigation Rail Screen',
       route: 'navigation_rail_screen',
       icon: Icons.vertical_split,
-      screen: const InProgresScreen(),
+      screen: const NavigationRailDemoScreen(),
     ),
     OptionMenu(
       title: 'App Contador',

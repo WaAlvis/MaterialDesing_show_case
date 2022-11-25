@@ -17,26 +17,17 @@ class _NavigationBarDemoScreenState extends State<NavigationBarDemoScreen> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   final List<Widget> _widgetOptions = <Widget>[
-    Container(
-      color: Colors.grey.shade200,
-      child: const Text(
-        ' Home',
-        style: optionStyle,
-      ),
+    const Text(
+      ' Home',
+      style: optionStyle,
     ),
-    Container(
-      color: Colors.grey.shade200,
-      child: const Text(
-        ' Business',
-        style: optionStyle,
-      ),
+    const Text(
+      ' Business',
+      style: optionStyle,
     ),
-    Container(
-      color: Colors.grey.shade200,
-      child:const  Text(
-        ' School',
-        style: optionStyle,
-      ),
+    const  Text(
+      ' School',
+      style: optionStyle,
     ),
   ];
 
@@ -63,14 +54,9 @@ class _NavigationBarDemoScreenState extends State<NavigationBarDemoScreen> {
     final TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       floatingActionButton: const BtnChangeMaterial(),
-      appBar: PreferredSize(
-        preferredSize: Theme.of(context).useMaterial3
-            ? Size.fromHeight(80.0)
-            : Size.fromHeight(55),
-        child: AppBar(
-          title: Text('Show Material'),
-          actions: actions,
-        ),
+      appBar: AppBar(
+        title: const Text('Show Material'),
+        actions: actions,
       ),
       body: Center(
         child: Theme.of(context).useMaterial3

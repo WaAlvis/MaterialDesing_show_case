@@ -14,12 +14,11 @@ class ButtonsDemoScreen extends StatelessWidget {
       appBar: const AppBarShowCase(),
       floatingActionButton: const BtnChangeMaterial(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      body:
-
-      Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+          SizedBox(height: 20),
           SectionViewWidgetExample(
             textTheme,
             titleSection: 'TextButton Widget',

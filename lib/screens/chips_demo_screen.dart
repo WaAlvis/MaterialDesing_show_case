@@ -15,6 +15,8 @@ class _ChipsDemoScreenState extends State<ChipsDemoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarShowCase(),
+      floatingActionButton: const BtnChangeMaterial(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
@@ -64,7 +66,8 @@ class _BasicInputsChipsState extends State<BasicInputsChips> {
       children: [
         InputChip(
           avatar: const CircleAvatar(
-            child: Text('FD'),
+
+            child: Text('C'),
           ),
           label: Text(
             'InputChip',

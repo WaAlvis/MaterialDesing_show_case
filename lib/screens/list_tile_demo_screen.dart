@@ -12,8 +12,10 @@ class ListTileDemoScreen extends StatelessWidget {
     final TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: const AppBarShowCase(),
+      floatingActionButton: const BtnChangeMaterial(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12.0),
         child: SectionTitleCaseWidget(
           title: 'ListTile Widget',
           caseWidget: Flexible(
@@ -73,31 +75,3 @@ class ListTileDemoScreen extends StatelessWidget {
   }
 }
 
-class DialogExample extends StatelessWidget {
-  const DialogExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () => showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: const Text('Title AlertDialog'),
-          content:
-              const Text('This is a short description for the popup alert'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'Cancel'),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('OK'),
-            ),
-          ],
-        ),
-      ),
-      child: const Text('Show AlertDialog Widget'),
-    );
-  }
-}
