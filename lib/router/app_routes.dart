@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material3_show_case/models/menu_option.dart';
+import 'package:material3_show_case/screens/in_progress_screen.dart';
 import 'package:material3_show_case/screens/screens.dart';
 
 class AppRoutes {
@@ -54,11 +55,17 @@ class AppRoutes {
       screen: const NavigationRailDemoScreen(),
     ),
     OptionMenu(
+      title: 'Inputs Screen ',
+      route: 'inputs_screen',
+      icon: Icons.input,
+      screen: const InProgressScreen(),
+    ),
+    OptionMenu(
       title: 'App Contador',
       route: 'App Contador',
       icon: Icons.numbers,
       screen: const ClassicScreenContador(),
-    )
+    ),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
