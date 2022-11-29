@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: const BtnChangeMaterial(),
       appBar: AppBar(
-        title: const Text('Material Desing'),
+        title: const Text('Material Desing '),
       ),
       body: Column(
         children: [
