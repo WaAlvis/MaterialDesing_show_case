@@ -66,6 +66,12 @@ class AppRoutes {
       icon: Icons.numbers,
       screen: const ClassicScreenContador(),
     ),
+    OptionMenu(
+      title: 'DatePicker screeen',
+      route: 'date_picker',
+      icon: Icons.date_range,
+      screen: const DatePickerDemoScreen(),
+    ),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:material3_show_case/models/case_widget_show.dart';
 
-class SectionViewWidgetExample extends StatelessWidget {
+class BtnWidgetExample extends StatelessWidget {
   final TextTheme textTheme;
   final String titleSection;
   final List<CaseWidgetShow> listCaseWidgets;
 
-  const SectionViewWidgetExample(
+  const BtnWidgetExample(
     this.textTheme, {
     super.key,
     required this.titleSection,

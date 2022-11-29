@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material3_show_case/widgets/button_change.dart';
+import 'package:material3_show_case/widgets/btn_change_material.dart';
 
 class ClassicScreenContador extends StatefulWidget {
   const ClassicScreenContador({
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<ClassicScreenContador> {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          BtnChangeMaterial(),
+BtnChangeMaterial(),
           SizedBox(height:20),
           FloatingActionButton(
             onPressed: _incrementCounter,

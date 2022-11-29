@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           const SizedBox(height:20),
           Text(
-            'Show Case Material 2 vs 3',
+            'Show Case Material 2 vs 3 ',
             style: themeData.textTheme.titleLarge,
           ),
           const SizedBox(height: 20),

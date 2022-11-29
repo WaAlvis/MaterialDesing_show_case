@@ -1,3 +1,5 @@
+export 'package:material3_show_case/screens/date_picker_demo_screen.dart';
+
 export 'package:material3_show_case/screens/list_tile_demo_screen.dart';
 
 export 'package:material3_show_case/screens/buttons_demos_screen.dart';
