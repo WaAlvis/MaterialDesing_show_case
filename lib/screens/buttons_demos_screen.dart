@@ -19,7 +19,7 @@ class ButtonsDemoScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(height: 20),
-          SectionViewWidgetExample(
+          BtnWidgetExample(
             textTheme,
             titleSection: 'TextButton Widget',
             listCaseWidgets: DataWidgetExample.listTextButtons,
@@ -27,7 +27,7 @@ class ButtonsDemoScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          SectionViewWidgetExample(
+          BtnWidgetExample(
             textTheme,
             titleSection: 'OutlinedButton Widget',
             listCaseWidgets: DataWidgetExample.listOutlinedButtons,
@@ -35,12 +35,12 @@ class ButtonsDemoScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          SectionViewWidgetExample(
+          BtnWidgetExample(
             textTheme,
             titleSection: 'ElevatedButton Widget',
             listCaseWidgets: DataWidgetExample.listElevatedButtons,
           ),
-          SectionViewWidgetExample(
+          BtnWidgetExample(
             textTheme,
             titleSection: 'FloatingActionButton Widget',
             listCaseWidgets: DataWidgetExample.listFabButtons,

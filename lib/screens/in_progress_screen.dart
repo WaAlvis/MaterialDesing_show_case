@@ -6,10 +6,10 @@ class InProgressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const  AppBarShowCase(),
+    return const Scaffold(
+      appBar:  AppBarShowCase(),
       body: Center(
-        child: Text('Page in progress...'),
+        child: Text('In Progress Screen...'),
       ),
     );
   }
