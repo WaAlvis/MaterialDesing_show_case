@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material3_show_case/models/menu_option.dart';
 import 'package:material3_show_case/screens/in_progress_screen.dart';
 import 'package:material3_show_case/screens/screens.dart';
+import 'package:material3_show_case/screens/switch_demo_screen.dart';
 
 class AppRoutes {
   static const initialRoute = 'home';
@@ -71,6 +72,12 @@ class AppRoutes {
       route: 'date_picker',
       icon: Icons.date_range,
       screen: const DatePickerDemoScreen(),
+    ),
+    OptionMenu(
+      title: 'Switch screeen',
+      route: 'switch_screen',
+      icon: Icons.switch_access_shortcut,
+      screen: const SwitchDemoScreen(),
     ),
   ];
 
