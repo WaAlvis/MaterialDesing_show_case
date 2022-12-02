@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material3_show_case/models/menu_option.dart';
+import 'package:material3_show_case/screens/in_progress_screen.dart';
 import 'package:material3_show_case/screens/screens.dart';
 
 class AppRoutes {
@@ -70,6 +71,24 @@ class AppRoutes {
       route: 'navigation_rail_screen',
       icon: Icons.vertical_split,
       screen: const NavigationRailDemoScreen(),
+    ),
+    OptionMenu(
+      title: 'Dropdown Button',
+      route: 'dropdown_button',
+      icon: Icons.arrow_drop_down,
+      screen: const DropdownButtonScreen(),
+    ),
+    OptionMenu(
+      title: 'PageView Carousel',
+      route: 'carousel_slider',
+      icon: Icons.view_carousel_rounded,
+      screen: const PageViewCarousel(),
+    ),
+    OptionMenu(
+      title: 'Switch screeen',
+      route: 'switch_screen',
+      icon: Icons.switch_access_shortcut,
+      screen: const SwitchDemoScreen(),
     ),
 
 
