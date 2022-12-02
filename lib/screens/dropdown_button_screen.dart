@@ -44,7 +44,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
       style: const TextStyle(color: Colors.black87, fontSize: 18.0),
       underline: Container(
         height: 2,
-        color: Colors.blueAccent,
+        color: Theme.of(context).primaryColor,
       ),
       onChanged: (String? value) {
         // This is called when the user selects an item.
@@ -53,7 +53,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
         });
       },
       iconSize: 24.0,
-      iconEnabledColor: Colors.blueAccent,
+      iconEnabledColor:  Theme.of(context).primaryColor,
       // isExpanded: true,
       items: list.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(

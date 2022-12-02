@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material3_show_case/widgets/btn_change_material.dart';
 
-class PageviewCarousel extends StatelessWidget {
-  const PageviewCarousel({super.key});
+class PageViewCarousel extends StatelessWidget {
+  const PageViewCarousel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,17 +43,34 @@ class _CarouselExampleState extends State<CarouselExample> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> imageIndicator(imagesLength, currentIndex) {
+      final ThemeData themeData = Theme.of(context);
+      return List<Widget>.generate(imagesLength, (index) {
+        return Container(
+          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
+          width: 10,
+          height: 10,
+          decoration: BoxDecoration(
+            color: currentIndex == index
+                ? themeData.primaryColor
+                : themeData.disabledColor,
+            shape: BoxShape.circle,
+          ),
+        );
+      });
+    }
+
     return Column(
       children: [
-        const SizedBox(height: 220, width: 1),
+        const SizedBox(height: 150, width: 1),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5),
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: 250,
+            height: 350,
             child: PageView.builder(
                 itemCount: images.length,
-                pageSnapping: true,
+                // pageSnapping: true,
                 controller: _pageController,
                 onPageChanged: (page) {
                   setState(() => activePage = page);
@@ -77,54 +94,18 @@ class _CarouselExampleState extends State<CarouselExample> {
 }
 
 // Animated container widget
-AnimatedContainer slider(images, pagePosition, active) {
+Widget slider(images, pagePosition, active) {
   double margin = active ? 10 : 20;
 
   return AnimatedContainer(
-    duration: const Duration(milliseconds: 500),
     curve: Curves.easeInOutCubic,
     margin: EdgeInsets.all(margin),
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        image: NetworkImage(
-          images[pagePosition],
-        ),
-        fit: BoxFit.cover,
-      ),
+    // padding:const  EdgeInsets.symmetric(horizontal:12),
+    duration: const Duration(milliseconds: 500),
+    child: FadeInImage(
+      placeholder: const AssetImage('assets/jar-loading.gif'),
+      image: NetworkImage(images[pagePosition]),
+      fit: BoxFit.cover,
     ),
   );
-}
-
-// Widget for image animation while sliding carousel
-imageAnimation(PageController animation, images, pagePosition) {
-  return AnimatedBuilder(
-    animation: animation,
-    builder: (context, widget) {
-      // print(pagePosition);
-      return SizedBox(
-        width: 200,
-        height: 200,
-        child: widget,
-      );
-    },
-    child: Container(
-      margin: const EdgeInsets.all(10),
-      child: Image.network(images[pagePosition]),
-    ),
-  );
-}
-
-// Widget for showing image indicator
-List<Widget> imageIndicator(imagesLength, currentIndex) {
-  return List<Widget>.generate(imagesLength, (index) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
-      width: 10,
-      height: 10,
-      decoration: BoxDecoration(
-        color: currentIndex == index ? Colors.teal.shade400 : Colors.black26,
-        shape: BoxShape.circle,
-      ),
-    );
-  });
 }
