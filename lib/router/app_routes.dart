@@ -74,6 +74,18 @@ class AppRoutes {
       screen: const DatePickerDemoScreen(),
     ),
     OptionMenu(
+      title: 'Dropdown Button',
+      route: 'dropdown_button',
+      icon: Icons.arrow_drop_down,
+      screen: const DropdownButtonScreen(),
+    ),
+    OptionMenu(
+      title: 'PageView Carousel',
+      route: 'carousel_slider',
+      icon: Icons.view_carousel_rounded,
+      screen: const PageViewCarousel(),
+    ),
+    OptionMenu(
       title: 'Switch screeen',
       route: 'switch_screen',
       icon: Icons.switch_access_shortcut,
