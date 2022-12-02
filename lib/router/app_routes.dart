@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:material3_show_case/models/menu_option.dart';
 import 'package:material3_show_case/screens/in_progress_screen.dart';
 import 'package:material3_show_case/screens/screens.dart';
-import 'package:material3_show_case/screens/switch_demo_screen.dart';
 
 class AppRoutes {
   static const initialRoute = 'home';
@@ -13,6 +12,12 @@ class AppRoutes {
     //     route: HomeScreen.routeName,
     //     icon: Icons.home,
     //     screen: const HomeScreen()),
+    OptionMenu(
+      title: 'App Contador',
+      route: 'App Contador',
+      icon: Icons.numbers,
+      screen: const ClassicScreenContador(),
+    ),
     OptionMenu(
       title: 'Buttons Demo',
       route: 'buttons_demo_screen',
@@ -32,10 +37,22 @@ class AppRoutes {
       screen: const ChipsDemoScreen(),
     ),
     OptionMenu(
+      title: 'DatePicker screeen',
+      route: 'date_picker',
+      icon: Icons.date_range,
+      screen: const DatePickerDemoScreen(),
+    ),
+    OptionMenu(
       title: 'Dialogs Demo',
       route: 'dialogs_demo_screen',
       icon: Icons.chat,
       screen: const DialogsDemoScreen(),
+    ),
+    OptionMenu(
+      title: 'Inputs Screen ',
+      route: 'inputs_screen',
+      icon: Icons.input,
+      screen: const InputsDemoScreen(),
     ),
     OptionMenu(
       title: 'ListTile Screen',
@@ -56,24 +73,6 @@ class AppRoutes {
       screen: const NavigationRailDemoScreen(),
     ),
     OptionMenu(
-      title: 'Inputs Screen ',
-      route: 'inputs_screen',
-      icon: Icons.input,
-      screen: const InProgressScreen(),
-    ),
-    OptionMenu(
-      title: 'App Contador',
-      route: 'App Contador',
-      icon: Icons.numbers,
-      screen: const ClassicScreenContador(),
-    ),
-    OptionMenu(
-      title: 'DatePicker screeen',
-      route: 'date_picker',
-      icon: Icons.date_range,
-      screen: const DatePickerDemoScreen(),
-    ),
-    OptionMenu(
       title: 'Dropdown Button',
       route: 'dropdown_button',
       icon: Icons.arrow_drop_down,
@@ -91,6 +90,9 @@ class AppRoutes {
       icon: Icons.switch_access_shortcut,
       screen: const SwitchDemoScreen(),
     ),
+
+
+
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
