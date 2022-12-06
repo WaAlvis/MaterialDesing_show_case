@@ -35,7 +35,6 @@ class _SwitchDemoScreenState extends State<SwitchDemoScreen> {
                   const SizedBox(height: 50,),
                 const Text('Switch Tile', style: TextStyle(fontSize: 25,fontStyle: FontStyle.italic, decoration: TextDecoration.underline),),
                   SwitchListTile(
-                    activeColor: Colors.indigo,
                     title: const Text('Habilitar Switch'),
                     value: change2, 
                     onChanged: (_change2) => setState(() {

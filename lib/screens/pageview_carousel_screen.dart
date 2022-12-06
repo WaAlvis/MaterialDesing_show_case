@@ -29,10 +29,11 @@ class _CarouselExampleState extends State<CarouselExample> {
   late PageController _pageController;
 
   List<String> images = [
-    "https://images.pexels.com/photos/14534676/pexels-photo-14534676.jpeg",
-    "https://images.pexels.com/photos/14320924/pexels-photo-14320924.jpeg",
-    "https://images.pexels.com/photos/14534676/pexels-photo-14534676.jpeg",
-    "https://images.pexels.com/photos/14320924/pexels-photo-14320924.jpeg",
+    "https://cafeselcriollo.com/wp-content/uploads/2022/01/beneficios-del-cafe-en-grano_.jpg",
+    "https://i.blogs.es/9b5cc5/pan-facil-y-rapido-1/840_560.jpg",
+    "https://cdn.elcocinerocasero.com/imagen/receta/1000/2022-07-03-14-12-38/cafe-bombon.jpeg",
+    "https://s1.eestatic.com/2022/10/06/ciencia/nutricion/708689949_227786978_1024x576.jpg",
+    "https://clubdelicatessen.com/wp-content/uploads/2022/04/frutas-tropicales-en-Espana.jpg",
   ];
 
   @override
@@ -67,10 +68,9 @@ class _CarouselExampleState extends State<CarouselExample> {
           padding: const EdgeInsets.symmetric(vertical: 5),
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: 350,
+            height: 300,
             child: PageView.builder(
                 itemCount: images.length,
-                // pageSnapping: true,
                 controller: _pageController,
                 onPageChanged: (page) {
                   setState(() => activePage = page);
