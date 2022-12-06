@@ -11,7 +11,7 @@ class CardsDemoScreen extends StatefulWidget {
 }
 
 class _CardsDemoScreenState extends State<CardsDemoScreen> {
-  bool _onSelected = true;
+  bool _onSelected = false;
 
   @override
   Widget build(BuildContext context) {
