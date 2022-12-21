@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:material3_show_case/data_widgets_example.dart';
 import 'package:material3_show_case/widgets/widgets.dart';
 
 import '../router/app_routes.dart';

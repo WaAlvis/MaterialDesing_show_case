@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:material3_show_case/data_widgets_example.dart';
 import 'package:material3_show_case/widgets/widgets.dart';
-
-import '../widgets/section_view_widget_example.dart';
 
 class DialogsDemoScreen extends StatelessWidget {
   const DialogsDemoScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    // final TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Show Case Material 3'),

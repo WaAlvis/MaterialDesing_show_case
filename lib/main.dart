@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:material3_show_case/data_widgets_example.dart';
 import 'package:material3_show_case/router/app_routes.dart';
 
 import 'bloc/bloc_theme.dart';

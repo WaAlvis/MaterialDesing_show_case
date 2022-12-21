@@ -25,9 +25,9 @@ class _SwitchDemoScreenState extends State<SwitchDemoScreen> {
                 const Text('Switch', style: TextStyle(fontSize: 25,fontStyle: FontStyle.italic, decoration: TextDecoration.underline),),
                 Switch(
                   value: change, 
-                  onChanged: (_change){
+                  onChanged: (change){
                     setState(() {
-                      change = _change;
+                      change = change;
                     });
                   }),
                   Text('The value is $change'),
@@ -37,8 +37,8 @@ class _SwitchDemoScreenState extends State<SwitchDemoScreen> {
                   SwitchListTile(
                     title: const Text('Habilitar Switch'),
                     value: change2, 
-                    onChanged: (_change2) => setState(() {
-                      change2 = _change2 ;
+                    onChanged: (change2) => setState(() {
+                      change2 = change2 ;
                     })  
                   ),
                   Text('The value is $change2'),

@@ -113,7 +113,7 @@ class _InputsFormExampleState extends State<InputsFormExample> {
                           Icons.visibility,
                           color: Theme.of(context).primaryColor,
                         )
-                      : Icon(Icons.visibility_off),
+                      : const Icon(Icons.visibility_off),
                 ),
                 border: const OutlineInputBorder(),
                 labelText: 'Contraseña',
@@ -144,7 +144,7 @@ class _InputsFormExampleState extends State<InputsFormExample> {
                   setState(() {});
                   _formKey.currentState!.reset();
                 },
-                child: Text('Reset'),
+                child: const Text('Reset'),
               )
             ],
           ),
@@ -187,9 +187,7 @@ class _AutoCompleteExample extends StatelessWidget {
     'Yandel',
   ];
 
-  const _AutoCompleteExample({
-    super.key,
-  });
+  const _AutoCompleteExample();
 
   @override
   Widget build(BuildContext context) {
@@ -229,7 +227,6 @@ class _InputExample extends StatelessWidget {
   final bool withCounter;
 
   const _InputExample({
-    super.key,
     this.hintText,
     required this.labelText,
     this.helperText,
@@ -322,7 +319,7 @@ class _EasyInputTextState extends State<_EasyInputText> {
                   setState(() {});
                   _formKey.currentState!.reset();
                 },
-                child: Text('Reset'),
+                child: const Text('Reset'),
               )
             ],
           ),

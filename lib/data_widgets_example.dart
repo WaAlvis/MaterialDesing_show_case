@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:material3_show_case/main.dart';
 
 import 'models/case_widget_show.dart';
 

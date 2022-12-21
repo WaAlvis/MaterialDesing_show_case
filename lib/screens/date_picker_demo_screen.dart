@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:material3_show_case/widgets/widgets.dart';
@@ -57,7 +56,7 @@ class _DatePickerDemoScreenState extends State<DatePickerDemoScreen> {
                         dateController.text = formatteDate.toString();
                       });
                     }else{
-                      print('No selected');
+                      // print('No selected');
                     }
                 },
                 ),
@@ -81,7 +80,7 @@ class _DatePickerDemoScreenState extends State<DatePickerDemoScreen> {
                         timeController.text = pickedTime.toString();
                       });
                     }else{
-                      print('No selected');
+                      // print('No selected');
                     }
                 },
                 ),

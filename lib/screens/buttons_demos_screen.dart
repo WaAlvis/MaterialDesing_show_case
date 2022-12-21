@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:material3_show_case/data_widgets_example.dart';
-import 'package:material3_show_case/models/case_widget_show.dart';
 
 import '../widgets/widgets.dart';
 
@@ -18,7 +17,7 @@ class ButtonsDemoScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           BtnWidgetExample(
             textTheme,
             titleSection: 'TextButton Widget',

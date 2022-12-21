@@ -42,8 +42,8 @@ class _MyHomePageState extends State<ClassicScreenContador> {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-BtnChangeMaterial(),
-          SizedBox(height:20),
+          const BtnChangeMaterial(),
+          const SizedBox(height: 20),
           FloatingActionButton(
             onPressed: _incrementCounter,
             tooltip: 'Increment',

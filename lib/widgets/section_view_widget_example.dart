@@ -44,7 +44,7 @@ class BtnWidgetExample extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
-              padding: EdgeInsets.symmetric(horizontal:20.0),
+              padding: const EdgeInsets.symmetric(horizontal:20.0),
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: listW.length,

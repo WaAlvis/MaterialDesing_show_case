@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:material3_show_case/data_widgets_example.dart';
-import 'package:material3_show_case/models/case_widget_show.dart';
 
 import '../widgets/widgets.dart';
 
@@ -51,7 +49,7 @@ class _NavigationBarDemoScreenState extends State<NavigationBarDemoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    // final TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       floatingActionButton: const BtnChangeMaterial(),
       appBar: AppBar(

@@ -54,7 +54,6 @@ class _CarouselExampleState extends State<CarouselExample> {
             activePage = index;
             _pageController.animateToPage(index,
                 duration: _timeAnimatedSlide, curve: Curves.easeInOutCubic);
-            print("${_pageController.page}");
 
             setState(() {});
           },

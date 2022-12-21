@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:material3_show_case/widgets/appbar_show_case.dart';
 import 'package:material3_show_case/widgets/widgets.dart';
 
 class NavigationRailDemoScreen extends StatefulWidget {
