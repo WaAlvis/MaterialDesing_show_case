@@ -7,26 +7,33 @@ class InputsDemoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppBarShowCase(),
-      floatingActionButton: const BtnChangeMaterial(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: SectionTitleCaseWidget(
-                title: 'TextField Widget',
-                caseWidget: Column(
-                  children: const [
-                    _EasyInputText(),
-                    SizedBox(height: 60),
-                    InputsFormExample()
-                  ],
+    return GestureDetector(
+
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: const AppBarShowCase(),
+        floatingActionButton: const BtnChangeMaterial(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: SectionTitleCaseWidget(
+                  title: 'TextField Widget',
+                  caseWidget: Column(
+                    children: const [
+                      SizedBox(height: 20),
+                      _AutoCompleteExample(),
+                      SizedBox(height: 40),
+                      _EasyInputText(),
+                      SizedBox(height: 60),
+                      InputsFormExample(),
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -66,83 +73,147 @@ class _InputsFormExampleState extends State<InputsFormExample> {
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            _InputExample(
+      key: _formKey,
+      child: Column(
+        children: [
+          _InputExample(
+            validator: validateNoEmpty,
+            inputFormatters: <TextInputFormatter>[
+              FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")),
+            ],
+            keyboardType: TextInputType.name,
+            hintText: 'David Smith',
+            labelText: 'Nombre',
+          ),
+          const SizedBox(height: 28),
+          _InputExample(
+            labelText: 'Celular',
+            validator: validatePhoneNum,
+            maxLength: 10,
+            keyboardType: TextInputType.number,
+            inputFormatters: <TextInputFormatter>[
+              FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+            ],
+            hintText: '321 231 3223',
+          ),
+          const SizedBox(height: 8),
+          TextFormField(
+              // validator: validator,
+              obscureText: isHidden,
+              keyboardType: TextInputType.text,
               validator: validateNoEmpty,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")),
-              ],
-              keyboardType: TextInputType.name,
-              hintText: 'David Smith',
-              labelText: 'Nombre',
-            ),
-            const SizedBox(height: 28),
-            _InputExample(
-              labelText: 'Celular',
-              validator: validatePhoneNum,
-              maxLength: 10,
-              keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.allow(RegExp("[0-9]")),
-              ],
-              hintText: '321 231 3223',
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-                // validator: validator,
-                obscureText: isHidden,
-                keyboardType: TextInputType.text,
-                validator: validateNoEmpty,
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      isHidden = !isHidden;
-                      setState(() {});
-                    },
-                    icon: isHidden
-                        ? Icon(
-                            Icons.visibility,
-                            color: Theme.of(context).primaryColor,
-                          )
-                        : Icon(Icons.visibility_off),
-                  ),
-                  border: const OutlineInputBorder(),
-                  labelText: 'Contraseña',
-                )),
-            const SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _isValid = true;
-                      setState(() {});
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Form is valid')),
-                      );
-                    } else {
-                      _isValid = false;
-                      setState(() {});
-                    }
+                    isHidden = !isHidden;
+                    setState(() {});
                   },
-                  child: const Text('validar'),
+                  icon: isHidden
+                      ? Icon(
+                          Icons.visibility,
+                          color: Theme.of(context).primaryColor,
+                        )
+                      : Icon(Icons.visibility_off),
                 ),
-                const SizedBox(width: 20),
-                OutlinedButton(
-                  onPressed: () {
+                border: const OutlineInputBorder(),
+                labelText: 'Contraseña',
+              )),
+          const SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _isValid = true;
+                    setState(() {});
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Form is valid')),
+                    );
+                  } else {
                     _isValid = false;
                     setState(() {});
-                    _formKey.currentState!.reset();
-                  },
-                  child: Text('Reset'),
-                )
-              ],
-            )
-          ],
-        ));
+                  }
+                },
+                child: const Text('validar'),
+              ),
+              const SizedBox(width: 20),
+              OutlinedButton(
+                onPressed: () {
+                  _isValid = false;
+                  setState(() {});
+                  _formKey.currentState!.reset();
+                },
+                child: Text('Reset'),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AutoCompleteExample extends StatelessWidget {
+  static const List<String> _kOptions = <String>[
+    'Alka',
+    'Amaru',
+    'Asher',
+    'Bittor',
+    'Blake',
+    'Bran',
+    'Cedric',
+    'Chaim',
+    'Dante',
+    'Darey',
+    'Egan',
+    'Falco',
+    'Faraj',
+    'Farid',
+    'Goran',
+    'Guido',
+    'Hervé',
+    'Hesper',
+    'Ibrahim',
+    'Jairo',
+    'Karim',
+    'Lars',
+    'Mandel',
+    'Nanda',
+    'Rayan',
+    'Silvio',
+    'William',
+    'Xoan',
+    'Yandel',
+  ];
+
+  const _AutoCompleteExample({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+
+        Text('Names (autocomplete)', style: TextStyle(fontSize: 15, color: Theme.of(context).unselectedWidgetColor),),
+        Autocomplete<String>(
+
+          optionsBuilder: (TextEditingValue textEditingValue) {
+            if (textEditingValue.text == '') {
+              return const Iterable<String>.empty();
+            }
+            return _kOptions.where((String option) {
+              return option.contains(textEditingValue.text.toLowerCase());
+            });
+          },
+          onSelected: (String selection) {
+            debugPrint('You just selected $selection');
+          },
+        ),
+      ],
+    );
   }
 }
 
