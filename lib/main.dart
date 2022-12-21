@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:material3_show_case/router/app_routes.dart';
 
 import 'bloc/bloc_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -19,9 +24,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Material 2 vs 3 Show Case',
           theme: ThemeData(
-            useMaterial3: snapshot.data, // Material 3 -- flag --
-            dividerColor: Theme.of(context).colorScheme.secondary
-          ),
+              useMaterial3: snapshot.data, // Material 3 -- flag --
+              dividerColor: Theme.of(context).colorScheme.secondary),
           initialRoute: AppRoutes.initialRoute,
           routes: AppRoutes.getAppRoutes(),
         );

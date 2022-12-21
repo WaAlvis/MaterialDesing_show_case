@@ -28,6 +28,7 @@ class InputsDemoScreen extends StatelessWidget {
                       _EasyInputText(),
                       SizedBox(height: 60),
                       InputsFormExample(),
+                      SizedBox(height: 60),
                     ],
                   ),
                 ),
