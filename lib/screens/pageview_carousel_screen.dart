@@ -25,6 +25,7 @@ class CarouselExample extends StatefulWidget {
 
 class _CarouselExampleState extends State<CarouselExample> {
   int activePage = 0;
+  static const Duration _timeAnimatedSlide = Duration(milliseconds: 500);
 
   late PageController _pageController;
 
@@ -47,15 +48,29 @@ class _CarouselExampleState extends State<CarouselExample> {
     List<Widget> imageIndicator(imagesLength, currentIndex) {
       final ThemeData themeData = Theme.of(context);
       return List<Widget>.generate(imagesLength, (index) {
-        return Container(
-          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
-          width: 10,
-          height: 10,
-          decoration: BoxDecoration(
-            color: currentIndex == index
-                ? themeData.primaryColor
-                : themeData.disabledColor,
-            shape: BoxShape.circle,
+        return GestureDetector(
+
+          onTap: () {
+            activePage = index;
+            _pageController.animateToPage(index,
+                duration: _timeAnimatedSlide, curve: Curves.easeInOutCubic);
+            print("${_pageController.page}");
+
+            setState(() {});
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              width: 12,
+              height: 12,
+              decoration: BoxDecoration(
+                color: currentIndex == index
+                    ? themeData.primaryColor
+                    : themeData.disabledColor,
+                shape: BoxShape.circle,
+              ),
+            ),
           ),
         );
       });
@@ -96,12 +111,14 @@ class _CarouselExampleState extends State<CarouselExample> {
 // Animated container widget
 Widget slider(images, pagePosition, active) {
   double margin = active ? 10 : 20;
+  //todo: change const Duration
+  const Duration timeAnimatedSlide = Duration(milliseconds: 500);
 
   return AnimatedContainer(
     curve: Curves.easeInOutCubic,
     margin: EdgeInsets.all(margin),
     // padding:const  EdgeInsets.symmetric(horizontal:12),
-    duration: const Duration(milliseconds: 500),
+    duration: timeAnimatedSlide,
     child: FadeInImage(
       placeholder: const AssetImage('assets/jar-loading.gif'),
       image: NetworkImage(images[pagePosition]),
