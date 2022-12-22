@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'models/case_widget_show.dart';
 
 class DataWidgetExample {
-
-
   // Accesiblidad, colors, formas redondeas, Typografia
   // Dynami color, formas simplicificacion,
   // accesibilidad.
@@ -80,7 +78,7 @@ class DataWidgetExample {
   static final List<CaseWidgetShow> listFabButtons = [
     CaseWidgetShow(
         showWidget: FloatingActionButton.small(
-          heroTag: 'fab.small',
+            heroTag: 'fab.small',
             onPressed: () {
               // Add your onPressed code here!
             },
@@ -105,7 +103,13 @@ class DataWidgetExample {
         showWidget: FloatingActionButton(
           heroTag: 'fab',
           onPressed: () {},
-          child: const Text('Button'),
+          child: const FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('Button'),
+            ),
+          ),
         ),
         name: ''),
     CaseWidgetShow(

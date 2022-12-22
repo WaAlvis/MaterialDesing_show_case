@@ -32,19 +32,19 @@ class BtnWidgetExample extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal:20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(
               titleSection,
               style: textTheme.titleLarge,
             ),
           ),
           const Padding(
-            padding:  EdgeInsets.symmetric(horizontal:20.0),
-            child:  Divider(),
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: Divider(),
           ),
           Expanded(
             child: ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal:20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: listW.length,
@@ -57,8 +57,7 @@ class BtnWidgetExample extends StatelessWidget {
                       height: 2,
                     ),
                     ConstrainedBox(
-                      constraints:
-                          BoxConstraints.loose(const Size.square(100)),
+                      constraints: BoxConstraints.loose(const Size.square(100)),
                       child: Text(
                         listCaseWidgets[i].name,
                         // softWrap: false,
