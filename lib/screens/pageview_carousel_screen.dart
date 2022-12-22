@@ -76,8 +76,8 @@ class _CarouselExampleState extends State<CarouselExample> {
     }
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(height: 150, width: 1),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5),
           child: SizedBox(
