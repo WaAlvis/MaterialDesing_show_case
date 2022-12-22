@@ -13,13 +13,21 @@ class DialogsDemoScreen extends StatelessWidget {
       ),
       floatingActionButton: const BtnChangeMaterial(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      body: const Padding(
-        padding: EdgeInsets.all(20.0),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: SectionTitleCaseWidget(
             title: 'AlertDialog Widget',
-            caseWidget:  Center(
-              child: DialogExample(),
+            caseWidget: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  SizedBox(
+                    height: 250,
+                  ),
+                  DialogExample()
+                ],
+              ),
             ),
           ),
         ),
