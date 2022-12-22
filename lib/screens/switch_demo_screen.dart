@@ -8,8 +8,8 @@ class SwitchDemoScreen extends StatefulWidget {
 }
 
 class _SwitchDemoScreenState extends State<SwitchDemoScreen> {
-  bool change = false;
-  bool change2 = false;
+  bool isActive1 = false;
+  bool isActive2 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,24 +24,24 @@ class _SwitchDemoScreenState extends State<SwitchDemoScreen> {
               children: [
                 const Text('Switch', style: TextStyle(fontSize: 25,fontStyle: FontStyle.italic, decoration: TextDecoration.underline),),
                 Switch(
-                  value: change, 
+                  value: isActive1,
                   onChanged: (change){
                     setState(() {
-                      change = change;
+                      isActive1 = change;
                     });
                   }),
-                  Text('The value is $change'),
+                  Text('The value is $isActive1'),
             
                   const SizedBox(height: 50,),
                 const Text('Switch Tile', style: TextStyle(fontSize: 25,fontStyle: FontStyle.italic, decoration: TextDecoration.underline),),
                   SwitchListTile(
                     title: const Text('Habilitar Switch'),
-                    value: change2, 
+                    value: isActive2,
                     onChanged: (change2) => setState(() {
-                      change2 = change2 ;
+                      isActive2 = change2 ;
                     })  
                   ),
-                  Text('The value is $change2'),
+                  Text('The value is $isActive2'),
             
               ],
               

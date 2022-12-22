@@ -63,6 +63,7 @@ class ListTileDemoScreen extends StatelessWidget {
                     isThreeLine: true,
                   ),
                 ),
+                SizedBox(height:80)
               ],
             ),
           ),
